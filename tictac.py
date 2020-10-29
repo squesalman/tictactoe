@@ -60,7 +60,7 @@ def main():
 
 
 
-test_draw = ['x','x','o','x','o','x','o','x','x']
+test_draw = ['x','x','o','x','o','x','o','x','p']
 mark = 'x'
 place_marker(test_draw,'$$',8)
 draw_board(test_draw)
