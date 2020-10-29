@@ -33,29 +33,12 @@ def draw_board(board):
 
 #Step 3
 def place_marker(board,marker,position):
-  board[position]=marker
+  board[position-1]=marker
 
 #Step 4
 def check_win(board,mark):
-  return board[0] == mark and board[1] == mark and board[2]== mark or board[3] == mark and board[4] == mark and board[5]== mark
+  return board[0] == mark and board[1] == mark and board[2]== mark or board[3] == mark and board[4] == mark and board[5]== mark or board[6] == mark and board[7] == mark and board[8]== mark
 
-
-def play_game():
-  position_list = ['1','2','3','4','5','6','7','8','9']
-  while True:
-    position = int(input("Please enter your position from 1-9: "))
-    if position > 9 or position < 0:
-      print("please enter number ranging 1-9 only")
-    else:
-      position_list[position-1] = 'x'
-      draw_board(position)
-    break
-
-def main():
-  while True:
-    player_input()
-    play_game()
-    break
   
 
 
