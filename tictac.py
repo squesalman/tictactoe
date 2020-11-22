@@ -10,19 +10,16 @@
 import random
 
 #Step 1
-def player_input():
-  marker2 = ''
-  while True:
-    marker1 = input("First player Enter 'X' or 'O' only : ").upper()
-    if marker1.upper() == 'X' or marker1.upper() == 'O':
-      if marker1.upper() == 'X':
-        marker2 = 'O'
-      else:
-        marker2 = 'X'
-      break
-    else:
-      print("Please enter correct marker")
-  print(f"welcome player 1 :{marker1} and player 2: {marker2}")
+def player_marker():
+    choice = 'ss'
+    while choice not in ['X','O']:
+        choice = input("Please enter your marker X or O : ")
+        choice = choice.upper()
+
+        if choice not in ['X','O']:
+            print("Please enter valid marker X or O")
+    return choice
+  
 
 #Step 2
 def draw_board(board):
@@ -70,8 +67,11 @@ def full_board_check(board):
 def player_choice(board):
   while True:
     choice = int(input("Please select position from 1-9"))
-    if choice <0 and choice > 9 :
-      print("please enter number 1-9 only")
+    if choice < 1 and choice > 9 :
+      print("please enter number 1-9 only ")
+    else:
+      print(space_check(board,choice))
+      break
   
   
     
@@ -84,15 +84,16 @@ def replay():
 
 
 
-player_input()
-test_draws = ['x','x','o','x','o','','x','x','x']
+player_marker()
+test_draws = ['','x','o','x','o','','x','x','x']
 #mark = 'x'
 #place_marker(test_draw,'$$',8)
 # draw_board(test_draw)
 # print(check_win(test_draw,'x'))
 # print(choose_first())
-print(space_check(test_draws,9))
+print(space_check(test_draws,1))
 print(full_board_check(test_draws))
+player_choice(test_draws)
 
 # for item in range(len(test_draws)):
 #   print(f"{item} : {test_draws[item]}")
